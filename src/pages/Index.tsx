@@ -32,7 +32,7 @@ const MenuContent = () => {
       </main>
 
       <MenuFooter />
-      <WhatsAppButton />
+      
     </div>
   );
 };
