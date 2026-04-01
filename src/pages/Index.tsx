@@ -2,7 +2,7 @@ import { LanguageProvider, useLang } from '@/contexts/LanguageContext';
 import MenuHeader from '@/components/MenuHeader';
 import MenuCard from '@/components/MenuCard';
 import MenuFooter from '@/components/MenuFooter';
-import WhatsAppButton from '@/components/WhatsAppButton';
+
 import SectionHeader from '@/components/SectionHeader';
 import { chaatItems, juiceItems } from '@/data/menuData';
 
@@ -32,7 +32,7 @@ const MenuContent = () => {
       </main>
 
       <MenuFooter />
-      <WhatsAppButton />
+      
     </div>
   );
 };
