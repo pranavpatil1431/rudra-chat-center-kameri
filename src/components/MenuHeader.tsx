@@ -1,47 +1,55 @@
 import { useLang } from '@/contexts/LanguageContext';
-import { Leaf } from 'lucide-react';
+import heroChaat from '@/assets/hero-chaat.jpg';
 
 const MenuHeader = () => {
   const { lang, setLang, t } = useLang();
 
   return (
     <header className="relative overflow-hidden">
-      {/* Gradient background */}
-      <div className="bg-gradient-to-br from-primary to-secondary py-8 px-4 text-center">
+      {/* Hero image with overlay */}
+      <div className="relative h-56 md:h-64">
+        <img
+          src={heroChaat}
+          alt="Rudraa Chat Center"
+          width={1280}
+          height={720}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
+
         {/* Language toggle */}
-        <div className="absolute top-4 right-4 flex rounded-full bg-primary-foreground/20 backdrop-blur-sm overflow-hidden text-sm font-medium">
+        <div className="absolute top-4 right-4 z-10 flex rounded-full border border-card/30 overflow-hidden text-xs font-semibold backdrop-blur-md">
           <button
             onClick={() => setLang('en')}
-            className={`px-4 py-1.5 transition-all ${lang === 'en' ? 'bg-primary-foreground text-primary font-semibold' : 'text-primary-foreground'}`}
+            className={`px-4 py-2 transition-all ${lang === 'en' ? 'bg-card text-foreground' : 'text-card/90 hover:text-card'}`}
           >
-            EN
+            English
           </button>
           <button
             onClick={() => setLang('mr')}
-            className={`px-4 py-1.5 transition-all ${lang === 'mr' ? 'bg-primary-foreground text-primary font-semibold' : 'text-primary-foreground'}`}
+            className={`px-4 py-2 transition-all ${lang === 'mr' ? 'bg-card text-foreground' : 'text-card/90 hover:text-card'}`}
           >
             मराठी
           </button>
         </div>
 
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <Leaf className="h-5 w-5 text-accent" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-accent bg-accent/20 px-3 py-1 rounded-full">
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+          <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-accent bg-accent/20 backdrop-blur-sm px-4 py-1.5 rounded-full mb-3 border border-accent/30">
             {t('vegBadge')}
           </span>
+          <h1 className="font-display text-4xl md:text-5xl font-black text-card tracking-tight drop-shadow-lg">
+            Rudraa Chat Center
+          </h1>
+          <p className="text-card/70 text-sm md:text-base mt-2 italic font-light tracking-wide">
+            "{t('tagline')}"
+          </p>
         </div>
-
-        <h1 className="text-3xl md:text-4xl font-extrabold text-primary-foreground tracking-tight">
-          Rudraa Chat Center
-        </h1>
-        <p className="text-primary-foreground/80 text-sm md:text-base mt-1 italic font-light">
-          "{t('tagline')}"
-        </p>
       </div>
 
-      {/* Curved bottom */}
-      <svg className="w-full -mt-1" viewBox="0 0 1440 40" fill="none">
-        <path d="M0 0H1440V10C1440 10 1200 40 720 40C240 40 0 10 0 10V0Z" fill="hsl(var(--secondary))" />
+      {/* Wave separator */}
+      <svg className="w-full -mt-1 text-background" viewBox="0 0 1440 50" fill="currentColor" preserveAspectRatio="none">
+        <path d="M0,0 C360,50 1080,50 1440,0 L1440,50 L0,50 Z" />
       </svg>
     </header>
   );
