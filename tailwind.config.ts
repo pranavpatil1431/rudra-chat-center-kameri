@@ -13,7 +13,20 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
       colors: {
+        saffron: {
+          50: 'hsl(30 100% 96%)',
+          100: 'hsl(28 100% 90%)',
+          500: 'hsl(15 85% 52%)',
+          600: 'hsl(12 85% 45%)',
+        },
+        spice: {
+          gold: 'hsl(45 90% 55%)',
+          green: 'hsl(145 60% 42%)',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
