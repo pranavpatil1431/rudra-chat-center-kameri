@@ -2,20 +2,14 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 
 type Lang = 'en' | 'mr';
 
-interface Translations {
-  [key: string]: { en: string; mr: string };
-}
-
-const translations: Translations = {
+const translations: Record<string, { en: string; mr: string }> = {
   tagline: { en: 'The Taste of Hygiene', mr: 'स्वच्छतेची चव' },
-  menu: { en: 'Our Menu', mr: 'आमचा मेनू' },
+  chaatMenu: { en: '🍽️ Chaat Menu', mr: '🍽️ चाट मेनू' },
+  juicesMenu: { en: '🥤 Fresh Juices & Drinks', mr: '🥤 ताजे रस आणि पेये' },
   contact: { en: 'Contact Us', mr: 'संपर्क करा' },
-  call: { en: 'Call Us', mr: 'कॉल करा' },
-  email: { en: 'Email', mr: 'ईमेल' },
   poweredBy: { en: 'Powered by Pranav Tech Solutions', mr: 'Powered by Pranav Tech Solutions' },
   allRights: { en: 'All Rights Reserved', mr: 'सर्व हक्क राखीव' },
-  orderNow: { en: 'Order on WhatsApp', mr: 'WhatsApp वर ऑर्डर करा' },
-  vegBadge: { en: 'Pure Veg', mr: 'शुद्ध शाकाहारी' },
+  vegBadge: { en: '🌿 Pure Veg', mr: '🌿 शुद्ध शाकाहारी' },
 };
 
 interface LangContextType {
