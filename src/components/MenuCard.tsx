@@ -7,9 +7,6 @@ const MenuCard = ({ item, index }: { item: MenuItem; index: number }) => {
   const desc = lang === 'en' ? item.descEn : item.descMr;
   const tag = item.tag ? (lang === 'en' ? item.tag.en : item.tag.mr) : null;
 
-  const whatsappMsg = encodeURIComponent(`Hi! I'd like to order ${item.nameEn} (₹${item.price}) from Rudraa Chat Center.`);
-  const whatsappLink = `https://wa.me/919130867073?text=${whatsappMsg}`;
-
   const isJuice = item.category === 'juice';
 
   return (
