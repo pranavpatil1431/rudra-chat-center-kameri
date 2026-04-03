@@ -18,7 +18,7 @@ const MenuHeader = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
 
         {/* Language toggle */}
-        <div className="absolute top-4 right-4 z-10 flex rounded-full border border-card/30 overflow-hidden text-xs font-semibold backdrop-blur-md">
+        <div className="absolute top-4 right-4 z-20 flex rounded-full border border-card/30 overflow-hidden text-xs font-semibold backdrop-blur-md">
           <button
             onClick={() => setLang('en')}
             className={`px-4 py-2 transition-all ${lang === 'en' ? 'bg-card text-foreground' : 'text-card/90 hover:text-card'}`}
