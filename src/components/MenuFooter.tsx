@@ -27,8 +27,12 @@ const MenuFooter = () => {
               mrpranavpatil11@gmail.com
             </a>
           </div>
-          <div className="border-t border-card/15 pt-5 space-y-1.5">
+          <div className="border-t border-card/15 pt-5 space-y-2">
             <p className="text-xs text-card/50 font-medium">{t('poweredBy')}</p>
+            <div className="flex flex-col items-center gap-1.5 text-[11px] text-card/40">
+              <a href="tel:9130867073" className="hover:text-card/70 transition-colors">📞 9130867073</a>
+              <a href="mailto:mrpranavpatil11@gmail.com" className="hover:text-card/70 transition-colors">✉️ mrpranavpatil11@gmail.com</a>
+            </div>
             <p className="text-[10px] text-card/30">© 2026 {t('allRights')}</p>
           </div>
         </div>
