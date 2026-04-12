@@ -6,6 +6,10 @@ const MenuFooter = () => {
   const ownerName = 'Yogesh Chougule';
   const ownerPhone = '8722718365';
   const whatsappLink = `https://wa.me/91${ownerPhone}?text=${encodeURIComponent('Hi Yogesh Chougule! I would like to place an order.')}`;
+  const developerName = 'Pranav Patil';
+  const developerPhone = '9130867073';
+  const developerLinkedIn = 'https://www.linkedin.com/in/pranav-patil/';
+  const developerWhatsApp = `https://wa.me/91${developerPhone}?text=${encodeURIComponent('Hi Pranav Patil! I need support for my menu website.')}`;
 
   return (
     <footer className="relative mt-10">
@@ -34,9 +38,22 @@ const MenuFooter = () => {
             </a>
           </div>
           <div className="border-t border-card/15 pt-5 space-y-2">
-            <p className="text-xs text-card/50 font-medium">{t('poweredBy')}</p>
+            <p className="text-xs text-card/50 font-medium">
+              Powered by{' '}
+              <a
+                href={developerLinkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-card/80 hover:text-card transition-colors underline underline-offset-4"
+              >
+                {developerName}
+              </a>
+            </p>
             <div className="flex flex-col items-center gap-1.5 text-[11px] text-card/40">
               <a href={`tel:${ownerPhone}`} className="hover:text-card/70 transition-colors">📞 {ownerPhone}</a>
+              <a href={developerWhatsApp} target="_blank" rel="noopener noreferrer" className="hover:text-card/70 transition-colors">
+                Developers: {developerPhone}
+              </a>
             </div>
             <p className="text-[10px] text-card/30">© 2026 {t('allRights')}</p>
           </div>
