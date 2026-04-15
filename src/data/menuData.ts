@@ -10,21 +10,21 @@ export interface MenuItem {
   tag?: { en: string; mr: string };
 }
 
-import bhelImage from '@/assets/bhel.jpeg';
-import bhelpuriImage from '@/assets/bhelpuri.jpeg';
-import paniPuriImage from '@/assets/pani-puri.jpeg';
-import dahiPuriImage from '@/assets/dahi-puri.jpeg';
-import ragdaImage from '@/assets/ragda.jpeg';
-import churaPuriImage from '@/assets/chura-puri.jpg';
-import dahiBhelImage from '@/assets/dahi-bhel.jpg';
-import dahiSevPuriImage from '@/assets/dahi-sev-puri.jpg';
-import sevPuriImage from '@/assets/sev-puri.jpg';
-import cheeseSukhiPuriImage from '@/assets/cheese-sukhi-puri.jpg';
-import cheeseSevPuriImage from '@/assets/cheese-sev-puri.jpg';
-import cheeseRagdaImage from '@/assets/cheese-ragda.jpg';
-import cheeseDabeliImage from '@/assets/cheese-dabeli.jpg';
-import cheeseFarsanBhelImage from '@/assets/cheese-farsan-bhel.jpg';
-import mayonnaiseDabeliImage from '@/assets/mayonnaise-dabeli.jpg';
+import bhelImage from '@/assets/food-bhel.jpg';
+import bhelpuriImage from '@/assets/hero-chaat.jpg';
+import paniPuriImage from '@/assets/food-panipuri.jpg';
+import dahiPuriImage from '@/assets/food-dahipuri.jpg';
+import ragdaImage from '@/assets/food-ragda.jpg';
+import churaPuriImage from '@/assets/food-sevpuri.jpg';
+import dahiBhelImage from '@/assets/food-dahipuri.jpg';
+import dahiSevPuriImage from '@/assets/food-sevpuri.jpg';
+import sevPuriImage from '@/assets/food-sevpuri.jpg';
+import cheeseSukhiPuriImage from '@/assets/food-bhel.jpg';
+import cheeseSevPuriImage from '@/assets/food-sevpuri.jpg';
+import cheeseRagdaImage from '@/assets/food-ragda.jpg';
+import cheeseDabeliImage from '@/assets/food-dabeli.jpg';
+import cheeseFarsanBhelImage from '@/assets/food-bhel.jpg';
+import mayonnaiseDabeliImage from '@/assets/food-dabeli.jpg';
 
 export const chaatItems: MenuItem[] = [
   {
