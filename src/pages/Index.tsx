@@ -22,13 +22,17 @@ const MenuContent = () => {
           ))}
         </div>
 
-        {/* Juices Section */}
-        <SectionHeader titleKey="juicesMenu" variant="cool" />
-        <div className="grid grid-cols-2 gap-3 md:gap-4">
-          {juiceItems.map((item, i) => (
-            <MenuCard key={item.id} item={item} index={i} />
-          ))}
-        </div>
+        {juiceItems.length > 0 && (
+          <>
+            {/* Juices Section */}
+            <SectionHeader titleKey="juicesMenu" variant="cool" />
+            <div className="grid grid-cols-2 gap-3 md:gap-4">
+              {juiceItems.map((item, i) => (
+                <MenuCard key={item.id} item={item} index={i} />
+              ))}
+            </div>
+          </>
+        )}
       </main>
 
       <MenuFooter />
