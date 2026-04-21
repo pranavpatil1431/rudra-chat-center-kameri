@@ -30,6 +30,7 @@ const MenuContent = () => {
             <MenuCard key={item.id} item={item} index={i} />
           ))}
         </div>
+
       </main>
 
       <MenuFooter />

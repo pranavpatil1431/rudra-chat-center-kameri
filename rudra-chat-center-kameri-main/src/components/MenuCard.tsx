@@ -21,6 +21,12 @@ const MenuCard = ({ item, index }: { item: MenuItem; index: number }) => {
           loading="lazy"
           width={512}
           height={512}
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (item.fallbackImage && target.src !== item.fallbackImage) {
+              target.src = item.fallbackImage;
+            }
+          }}
           className="w-full h-40 md:h-48 object-cover group-hover:scale-110 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -29,13 +35,11 @@ const MenuCard = ({ item, index }: { item: MenuItem; index: number }) => {
             {tag}
           </span>
         )}
-        <div className="absolute bottom-2.5 right-2.5 bg-card/95 backdrop-blur-sm text-foreground font-extrabold text-lg px-3 py-1 rounded-xl shadow-md">
-          ₹{item.price}
-        </div>
       </div>
-      <div className="p-3.5">
+      <div className="p-3.5 space-y-1.5">
         <h3 className="font-bold text-foreground text-sm md:text-base leading-tight">{name}</h3>
         <p className="text-muted-foreground text-[11px] md:text-xs mt-1 leading-relaxed line-clamp-2">{desc}</p>
+        <p className="text-primary font-extrabold text-base">₹{item.price}</p>
       </div>
     </div>
   );

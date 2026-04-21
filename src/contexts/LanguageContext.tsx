@@ -7,7 +7,7 @@ const translations: Record<string, { en: string; mr: string }> = {
   chaatMenu: { en: '🍽️ Chaat Menu', mr: '🍽️ चाट मेनू' },
   juicesMenu: { en: '🥤 Fresh Juices & Drinks', mr: '🥤 ताजे रस आणि पेये' },
   contact: { en: 'Contact Us', mr: 'संपर्क करा' },
-  poweredBy: { en: 'Powered by Boutam Developers', mr: 'Powered by Boutam Developers' },
+  poweredBy: { en: 'Developed by Pranav Patil', mr: 'Developed by Pranav Patil' },
   allRights: { en: 'All Rights Reserved', mr: 'सर्व हक्क राखीव' },
   vegBadge: { en: '🌿 Pure Veg', mr: '🌿 शुद्ध शाकाहारी' },
 };

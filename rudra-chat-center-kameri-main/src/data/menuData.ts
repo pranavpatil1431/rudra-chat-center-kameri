@@ -6,6 +6,7 @@ export interface MenuItem {
   descMr: string;
   price: number;
   image: string;
+  fallbackImage?: string;
   category: 'chaat' | 'juice';
   tag?: { en: string; mr: string };
 }
@@ -27,133 +28,172 @@ import cheeseDabeliImage from '@/assets/cheese-dabeli.jpg';
 import cheeseFarsanBhelImage from '@/assets/cheese-farsan-bhel.jpg';
 import mayonnaiseDabeliImage from '@/assets/mayonnaise-dabeli.jpg';
 
+const menuItemImageFiles: Record<string, string> = {
+  'Bhel': 'bhel.jpeg',
+  'Sukhi Bhel': 'bhelpuri.jpeg',
+  'Cheese Bhel': 'Cheese Farsan Bhel.jpg',
+  'Farsan Bhel': 'bhelpuri.jpeg',
+  'Cheese Farsan Bhel': 'Cheese Farsan Bhel.jpg',
+  'Dahi Bhel': 'Dahi Bhel.jpg',
+  'Bhelpuri': 'bhelpuri.jpeg',
+  'Chura Puri': 'Chura Puri.jpg',
+  'Pani Puri': 'panipuri .jpeg',
+  'Sev Puri': 'Sev Puri.jpg',
+  'Dahi Puri': 'dahipuri .jpeg',
+  'Dahi Sev Puri': 'Dahi Sev Puri.jpg',
+  'Cheese Sukhi Puri': 'Cheese Sukhi Puri.jpg',
+  'Cheese Pani Puri': 'panipuri .jpeg',
+  'Cheese Dahi Puri': 'dahipuri .jpeg',
+  'Cheese Sev Puri': 'Cheese Sev Puri.jpg',
+  'Ragda': 'ragda.jpeg',
+  'Cheese Ragda': 'Cheese Ragda.jpg',
+  'Dabeli': 'Cheese Dabeli.jpg',
+  'Cheese Dabeli': 'Cheese Dabeli.jpg',
+  'Mayonnaise Dabeli': 'Mayonnaise Dabeli.jpg',
+  'Sugarcane Juice': 'usacha ras .jpeg',
+};
+
+const resolveMenuImageFromFolder = (itemName: string) => {
+  const fileName = menuItemImageFiles[itemName];
+  if (!fileName) return '';
+  return new URL(`../../images of meanue item/${fileName}`, import.meta.url).href;
+};
+
+const getItemImage = (itemName: string, fallbackImage: string) => {
+  const menuImage = resolveMenuImageFromFolder(itemName);
+  return {
+    image: menuImage || fallbackImage,
+    fallbackImage,
+  };
+};
+
 export const chaatItems: MenuItem[] = [
   {
     id: 1, nameEn: 'Bhel', nameMr: 'भेळ',
     descEn: 'Crispy puffed rice tossed with tangy chutneys & fresh veggies',
     descMr: 'कुरकुरीत मुरमुरे, चटण्या आणि ताज्या भाज्यांसह',
-    price: 35, image: bhelImage, category: 'chaat',
+    price: 35, ...getItemImage('Bhel', bhelImage), category: 'chaat',
   },
   {
     id: 2, nameEn: 'Sukhi Bhel', nameMr: 'सुकपुरी भेळ',
     descEn: 'Dry-style bhel with crunchy farsan and light masala',
     descMr: 'कुरकुरीत फरसाण आणि हलक्या मसाल्यासह ड्राय स्टाइल भेळ',
-    price: 35, image: bhelpuriImage, category: 'chaat',
+    price: 35, ...getItemImage('Sukhi Bhel', bhelpuriImage), category: 'chaat',
   },
   {
     id: 3, nameEn: 'Cheese Bhel', nameMr: 'चीज भेळ',
     descEn: 'Loaded bhel topped with grated cheese and chutneys',
     descMr: 'किसलेल्या चीज आणि चटण्यांसह भरगच्च भेळ',
-    price: 60, image: cheeseFarsanBhelImage, category: 'chaat',
+    price: 60, ...getItemImage('Cheese Bhel', cheeseFarsanBhelImage), category: 'chaat',
   },
   {
     id: 5, nameEn: 'Farsan Bhel', nameMr: 'फरसाणा भेळ',
     descEn: 'Bhel mixed generously with assorted farsan',
     descMr: 'विविध फरसाणासह भरपूर मिक्स केलेली भेळ',
-    price: 60, image: bhelpuriImage, category: 'chaat',
+    price: 60, ...getItemImage('Farsan Bhel', bhelpuriImage), category: 'chaat',
   },
   {
     id: 6, nameEn: 'Cheese Farsan Bhel', nameMr: 'चीज फरसाणा भेळ',
     descEn: 'Rich farsan bhel finished with cheese topping',
     descMr: 'चीज टॉपिंगसह रिच फरसाणा भेळ',
-    price: 70, image: cheeseFarsanBhelImage, category: 'chaat',
+    price: 70, ...getItemImage('Cheese Farsan Bhel', cheeseFarsanBhelImage), category: 'chaat',
   },
   {
     id: 7, nameEn: 'Dahi Bhel', nameMr: 'दही भेळ',
     descEn: 'Bhel mixed with fresh yogurt and sweet-spicy chutneys',
     descMr: 'ताज्या दही आणि गोड-तिखट चटण्यांसह भेळ',
-    price: 50, image: dahiBhelImage, category: 'chaat',
+    price: 50, ...getItemImage('Dahi Bhel', dahiBhelImage), category: 'chaat',
   },
   {
     id: 8, nameEn: 'Bhelpuri', nameMr: 'भेळपुरी',
     descEn: 'Classic bhelpuri with chutneys, onion, tomato and sev',
     descMr: 'चटण्या, कांदा, टोमॅटो आणि शेवसह क्लासिक भेळपुरी',
-    price: 70, image: bhelpuriImage, category: 'chaat',
+    price: 70, ...getItemImage('Bhelpuri', bhelpuriImage), category: 'chaat',
   },
   {
     id: 9, nameEn: 'Chura Puri', nameMr: 'चुरापुरी',
     descEn: 'Crunchy puri chaat with masala and tangy chutneys',
     descMr: 'मसाला आणि आंबट-गोड चटण्यांसह कुरकुरीत पुरी चाट',
-    price: 35, image: churaPuriImage, category: 'chaat',
+    price: 35, ...getItemImage('Chura Puri', churaPuriImage), category: 'chaat',
   },
   {
     id: 10, nameEn: 'Pani Puri', nameMr: 'पाणीपुरी',
     descEn: '6 crispy puris with spicy pani and potato filling',
     descMr: '६ कुरकुरीत पुऱ्या, तिखट पाणी आणि बटाट्याच्या सारणासह',
-    price: 25, image: paniPuriImage, category: 'chaat',
+    price: 25, ...getItemImage('Pani Puri', paniPuriImage), category: 'chaat',
     tag: { en: '🔥 Bestseller', mr: '🔥 बेस्टसेलर' },
   },
   {
     id: 11, nameEn: 'Sev Puri', nameMr: 'शेवपुरी',
     descEn: 'Flat puris with potato mix, chutneys and sev',
     descMr: 'बटाटा मिक्स, चटण्या आणि शेवसह सपाट पुऱ्या',
-    price: 40, image: sevPuriImage, category: 'chaat',
+    price: 40, ...getItemImage('Sev Puri', sevPuriImage), category: 'chaat',
   },
   {
     id: 12, nameEn: 'Dahi Puri', nameMr: 'दहीपुरी',
     descEn: 'Crispy puris topped with yogurt, chutneys and sev',
     descMr: 'दही, चटण्या आणि शेवसह कुरकुरीत दहीपुरी',
-    price: 40, image: dahiPuriImage, category: 'chaat',
+    price: 40, ...getItemImage('Dahi Puri', dahiPuriImage), category: 'chaat',
   },
   {
     id: 13, nameEn: 'Dahi Sev Puri', nameMr: 'दही शेवपुरी',
     descEn: 'Sev puri finished with chilled sweet dahi',
     descMr: 'थंड गोड दहीसह सर्व्ह केलेली शेवपुरी',
-    price: 50, image: dahiSevPuriImage, category: 'chaat',
+    price: 50, ...getItemImage('Dahi Sev Puri', dahiSevPuriImage), category: 'chaat',
   },
   {
     id: 14, nameEn: 'Cheese Sukhi Puri', nameMr: 'चीज सुकिपुरी',
     descEn: 'Dry puri chaat with cheese and house masala',
     descMr: 'चीज आणि हाऊस मसाल्यासह ड्राय पुरी चाट',
-    price: 40, image: cheeseSukhiPuriImage, category: 'chaat',
+    price: 40, ...getItemImage('Cheese Sukhi Puri', cheeseSukhiPuriImage), category: 'chaat',
   },
   {
     id: 15, nameEn: 'Cheese Pani Puri', nameMr: 'चीज पाणीपुरी',
     descEn: 'Cheese-topped pani puri with spicy mint water',
     descMr: 'तिखट पुदिना पाण्यासह चीज टॉपिंगची पाणीपुरी',
-    price: 40, image: paniPuriImage, category: 'chaat',
+    price: 40, ...getItemImage('Cheese Pani Puri', paniPuriImage), category: 'chaat',
   },
   {
     id: 16, nameEn: 'Cheese Dahi Puri', nameMr: 'चीज दहीपुरी',
     descEn: 'Creamy dahi puri with rich cheese topping',
     descMr: 'रिच चीज टॉपिंगसह क्रीमी दहीपुरी',
-    price: 50, image: dahiPuriImage, category: 'chaat',
+    price: 50, ...getItemImage('Cheese Dahi Puri', dahiPuriImage), category: 'chaat',
   },
   {
     id: 17, nameEn: 'Cheese Sev Puri', nameMr: 'चीज शेवपुरी',
     descEn: 'Crispy sev puri with extra cheese',
     descMr: 'अधिक चीजसह कुरकुरीत शेवपुरी',
-    price: 50, image: cheeseSevPuriImage, category: 'chaat',
+    price: 50, ...getItemImage('Cheese Sev Puri', cheeseSevPuriImage), category: 'chaat',
   },
   {
     id: 18, nameEn: 'Ragda', nameMr: 'रगडा',
     descEn: 'Spicy ragda served in classic chaat style',
     descMr: 'क्लासिक चाट स्टाइलमध्ये सर्व्ह केलेला तिखट रगडा',
-    price: 40, image: ragdaImage, category: 'chaat',
+    price: 40, ...getItemImage('Ragda', ragdaImage), category: 'chaat',
   },
   {
     id: 19, nameEn: 'Cheese Ragda', nameMr: 'चीज रगडा',
     descEn: 'Ragda topped with cheese and chutney drizzle',
     descMr: 'चीज आणि चटणी ड्रिझलसह रगडा',
-    price: 50, image: cheeseRagdaImage, category: 'chaat',
+    price: 50, ...getItemImage('Cheese Ragda', cheeseRagdaImage), category: 'chaat',
   },
   {
     id: 20, nameEn: 'Dabeli', nameMr: 'दाबेली',
     descEn: 'Kutchi dabeli with spicy potato and crunchy masala',
     descMr: 'तिखट बटाटा आणि क्रंची मसाल्यासह कच्छी दाबेली',
-    price: 20, image: cheeseDabeliImage, category: 'chaat',
+    price: 20, ...getItemImage('Dabeli', cheeseDabeliImage), category: 'chaat',
   },
   {
     id: 21, nameEn: 'Cheese Dabeli', nameMr: 'चीज दाबेली',
     descEn: 'Classic dabeli with loaded cheese filling',
     descMr: 'भरपूर चीज फिलिंगसह क्लासिक दाबेली',
-    price: 40, image: cheeseDabeliImage, category: 'chaat',
+    price: 40, ...getItemImage('Cheese Dabeli', cheeseDabeliImage), category: 'chaat',
   },
   {
     id: 22, nameEn: 'Mayonnaise Dabeli', nameMr: 'मायोनिज दाबेली',
     descEn: 'Soft dabeli with creamy mayonnaise spread',
     descMr: 'क्रीमी मायोनिज स्प्रेडसह मऊ दाबेली',
-    price: 40, image: mayonnaiseDabeliImage, category: 'chaat',
+    price: 40, ...getItemImage('Mayonnaise Dabeli', mayonnaiseDabeliImage), category: 'chaat',
   },
 ];
 
@@ -162,7 +202,7 @@ export const juiceItems: MenuItem[] = [
     id: 24, nameEn: 'Sugarcane Juice', nameMr: 'उसाचा रस',
     descEn: 'Fresh cold-pressed sugarcane juice with ginger & lemon',
     descMr: 'आले आणि लिंबूसह ताजा उसाचा रस',
-    price: 30, image: sugarcaneJuiceImage, category: 'juice',
+    price: 30, ...getItemImage('Sugarcane Juice', sugarcaneJuiceImage), category: 'juice',
     tag: { en: '🧊 Refreshing', mr: '🧊 थंडगार' },
   },
 ];
