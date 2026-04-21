@@ -30,7 +30,7 @@ import mayonnaiseDabeliImage from '@/assets/mayonnaise-dabeli.jpg';
 
 const menuItemImageFiles: Record<string, string> = {
   'Bhel': 'bhel.jpeg',
-  'Sukhi Bhel': 'bhelpuri.jpeg',
+  'Sukhi Bhel': 'Sukhi Bhel.jpg',
   'Cheese Bhel': 'Cheese Farsan Bhel.jpg',
   'Farsan Bhel': 'bhelpuri.jpeg',
   'Cheese Farsan Bhel': 'Cheese Farsan Bhel.jpg',
@@ -72,10 +72,10 @@ export const chaatItems: MenuItem[] = [
     id: 1, nameEn: 'Bhel', nameMr: 'भेळ',
     descEn: 'Crispy puffed rice tossed with tangy chutneys & fresh veggies',
     descMr: 'कुरकुरीत मुरमुरे, चटण्या आणि ताज्या भाज्यांसह',
-    price: 35, ...getItemImage('Bhel', bhelImage), category: 'chaat',
+    price: 40, ...getItemImage('Bhel', bhelImage), category: 'chaat',
   },
   {
-    id: 2, nameEn: 'Sukhi Bhel', nameMr: 'सुकपुरी भेळ',
+    id: 2, nameEn: 'Sukhi Bhel', nameMr: 'सुक भेळ',
     descEn: 'Dry-style bhel with crunchy farsan and light masala',
     descMr: 'कुरकुरीत फरसाण आणि हलक्या मसाल्यासह ड्राय स्टाइल भेळ',
     price: 35, ...getItemImage('Sukhi Bhel', bhelpuriImage), category: 'chaat',
@@ -108,7 +108,7 @@ export const chaatItems: MenuItem[] = [
     id: 8, nameEn: 'Bhelpuri', nameMr: 'भेळपुरी',
     descEn: 'Classic bhelpuri with chutneys, onion, tomato and sev',
     descMr: 'चटण्या, कांदा, टोमॅटो आणि शेवसह क्लासिक भेळपुरी',
-    price: 70, ...getItemImage('Bhelpuri', bhelpuriImage), category: 'chaat',
+    price: 60, ...getItemImage('Bhelpuri', bhelpuriImage), category: 'chaat',
   },
   {
     id: 9, nameEn: 'Chura Puri', nameMr: 'चुरापुरी',
@@ -139,7 +139,7 @@ export const chaatItems: MenuItem[] = [
     id: 13, nameEn: 'Dahi Sev Puri', nameMr: 'दही शेवपुरी',
     descEn: 'Sev puri finished with chilled sweet dahi',
     descMr: 'थंड गोड दहीसह सर्व्ह केलेली शेवपुरी',
-    price: 50, ...getItemImage('Dahi Sev Puri', dahiSevPuriImage), category: 'chaat',
+    price: 45, ...getItemImage('Dahi Sev Puri', dahiSevPuriImage), category: 'chaat',
   },
   {
     id: 14, nameEn: 'Cheese Sukhi Puri', nameMr: 'चीज सुकिपुरी',
