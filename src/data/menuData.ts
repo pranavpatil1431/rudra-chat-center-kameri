@@ -34,28 +34,30 @@ const getFallbackImageForItem = (itemName: string) => {
 
 const menuItemImageFiles: Record<string, string> = {
   'Bhel': 'bhel.jpeg',
-  'Sukhi Bhel': 'bhelpuri.jpeg',
-  'Cheese Bhel': 'Cheese Farsan Bhel.jpg',
+  'Sukhi Bhel': 'Sukhi Bhel.jpg',
+  'Cheese Bhel': 'Cheese Bhel.jpg',
   'Special Bhel': 'bhel.jpeg',
-  'Farsan Bhel': 'bhelpuri.jpeg',
+  'Farsan Bhel': 'Farsan Bhel.jpg',
   'Cheese Farsan Bhel': 'Cheese Farsan Bhel.jpg',
   'Dahi Bhel': 'Dahi Bhel.jpg',
   'Bhelpuri': 'bhelpuri.jpeg',
   'Chura Puri': 'Chura Puri.jpg',
-  'Pani Puri': 'panipuri .jpeg',
+  'Pani Puri': 'Pani Puri.jpg',
   'Sev Puri': 'Sev Puri.jpg',
-  'Dahi Puri': 'dahipuri .jpeg',
+  'Dahi Puri': 'Dahi Puri.jpg',
   'Dahi Sev Puri': 'Dahi Sev Puri.jpg',
   'Cheese Sukhi Puri': 'Cheese Sukhi Puri.jpg',
-  'Cheese Pani Puri': 'panipuri .jpeg',
-  'Cheese Dahi Puri': 'dahipuri .jpeg',
+  'Cheese Pani Puri': 'Cheese Pani Puri.jpg',
+  'Cheese Dahi Puri': 'Cheese Dahi Puri.jpg',
   'Cheese Sev Puri': 'Cheese Sev Puri.jpg',
   'Ragda': 'ragda.jpeg',
   'Cheese Ragda': 'Cheese Ragda.jpg',
-  'Dabeli': 'Cheese Dabeli.jpg',
+  'Dabeli': 'dabeli.jpg',
   'Cheese Dabeli': 'Cheese Dabeli.jpg',
   'Mayonnaise Dabeli': 'Mayonnaise Dabeli.jpg',
   'Tandoori Mayonnaise Dabeli': 'Mayonnaise Dabeli.jpg',
+  'Sugarcane Juice': 'Sugarcane Juice.jpg',
+  'Usacha Ras': 'usacha ras .jpeg',
 };
 
 const resolveMenuImageFromFolder = (itemName: string) => {
@@ -214,4 +216,17 @@ export const chaatItems: MenuItem[] = [
   },
 ];
 
-export const juiceItems: MenuItem[] = [];
+export const juiceItems: MenuItem[] = [
+  {
+    id: 24, nameEn: 'Sugarcane Juice', nameMr: 'उसचा रस',
+    descEn: 'Fresh sugarcane juice from the board',
+    descMr: 'बोर्डवरील ताजा उसचा रस',
+    price: 30, ...getItemImage('Sugarcane Juice', bhelImage), category: 'juice',
+  },
+  {
+    id: 25, nameEn: 'Usacha Ras', nameMr: 'उसचा रस',
+    descEn: 'Traditional usacha ras from the board',
+    descMr: 'बोर्डवरील पारंपरिक उसचा रस',
+    price: 35, ...getItemImage('Usacha Ras', bhelImage), category: 'juice',
+  },
+];
